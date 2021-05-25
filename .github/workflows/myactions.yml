@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: master
   pull_request:
     branches: [ main ]
 
@@ -35,3 +35,12 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+  
+  my_another_action:
+    runs-on: macos-lastest
+    steps:
+      - name: checking out.
+        uses: actions/checkout@v2
+       
+      - name: Run a command
+        run:  ls ${{github.workspace}}
